@@ -1,17 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
+const leagueJs = require("leaguejs");
 const { KEY: api_key } = require("../utils/constants");
 
 router.route("/").get(async (req, res) => {
   try {
-    const { id, perPage: endIndex } = req.query;
+    const { id } = req.query;
     await axios({
       method: "GET",
-      url: `https://oc1.api.riotgames.com/lol/match/v4/matchlists/by-account/${id}`,
+      url: `https://oc1.api.riotgames.com/lol/match/v4/matches/${id}`,
       params: {
-        api_key,
-        endIndex
+        api_key
       }
     }).then(result => {
       res.status(200).json({

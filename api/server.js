@@ -1,5 +1,4 @@
 "use strict";
-
 const express = require("express");
 const http = require("http");
 
@@ -12,13 +11,16 @@ const middleWare = require("./middleware");
 const { applyMiddleware } = require("./utils");
 
 const { router: summonerRouter } = require("./routes/summonerRoutes");
+const { router: matchesRouter } = require("./routes/matchesRoutes");
 const { router: matchRouter } = require("./routes/matchRoutes");
 
 applyMiddleware(middleWare, router);
 
 router.use("/api/summoners", summonerRouter);
 
-router.use("/api/matches", matchRouter);
+router.use("/api/matches", matchesRouter);
+
+router.use("/api/match", matchRouter);
 
 const server = http.createServer(router);
 
