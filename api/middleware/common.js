@@ -21,6 +21,6 @@ const corsOptions = {
   }
 };
 
-exports.handleCors = () => {
-  cors(corsOptions);
+exports.handleCors = router => {
+  router.use(cors(corsOptions));
 };
