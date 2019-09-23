@@ -6,21 +6,22 @@ exports.handleBodyRequestParsing = router => {
   router.use(bodyParser.json());
 };
 
-const whiteList = [
-  "http://localhost:3000/",
-  "https://summonize.coreylanier.com"
-];
+// const whiteList = [
+//   "http://localhost:3000/",
+//   "http://localhost:4000/",
+//   "https://summonize.coreylanier.com"
+// ];
 
-const corsOptions = {
-  origin: function(origin, callback) {
-    if (whiteList.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  }
-};
+// const corsOptions = {
+//   origin: function(origin, callback) {
+//     if (whiteList.indexOf(origin) !== -1) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   }
+// };
 
-exports.handleCors = router => {
-  router.use(cors(corsOptions));
-};
+// exports.handleCors = router => {
+//   router.use(cors(corsOptions));
+// };
