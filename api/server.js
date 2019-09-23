@@ -12,10 +12,13 @@ const middleWare = require("./middleware");
 const { applyMiddleware } = require("./utils");
 
 const { router: summonerRouter } = require("./routes/summonerRoutes");
+const { router: matchRouter } = require("./routes/matchRoutes");
 
 applyMiddleware(middleWare, router);
 
 router.use("/api/summoners", summonerRouter);
+
+router.use("/api/matches", matchRouter);
 
 const server = http.createServer(router);
 
